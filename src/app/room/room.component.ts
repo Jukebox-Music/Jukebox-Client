@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class RoomComponent implements OnInit {
 
-    private roomName$: Observable<string>;
+    public roomName$: Observable<string>;
 
     constructor(route: ActivatedRoute) {
         this.roomName$ = route.queryParams.map((params) => {
