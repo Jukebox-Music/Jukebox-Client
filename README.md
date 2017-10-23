@@ -1,3 +1,5 @@
+[![Build Status][travis-image]][travis-url]
+
 # JukeboxClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
@@ -25,3 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+---
+
+[travis-image]: https://travis-ci.org/Jukebox-Music/Jukebox-Client.svg?branch=master
+[travis-url]: https://travis-ci.org/Jukebox-Music/Jukebox-Client
