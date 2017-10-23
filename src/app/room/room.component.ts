@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-room',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomComponent implements OnInit {
 
-    constructor() { }
+    private roomName$: Observable<string>;
+
+    constructor(route: ActivatedRoute) {
+        this.roomName$ = route.queryParams.map((params) => {
+            return params.name;
+        });
+    }
 
     public ngOnInit(): void {
     }
