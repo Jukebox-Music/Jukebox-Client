@@ -16,6 +16,7 @@ before_install:
     - sh -e /etc/init.d/xvfb start
 before_script:
     - npm i -g angular-cli-ghpages
+    - cp node_modules/socket.io-client/dist/socket.io{.slim.js,.min.js}
 script:
     - npm run lint
     - npm run sass-lint
