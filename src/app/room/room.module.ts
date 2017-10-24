@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { RoomRoutingModule } from './room-routing.module';
@@ -10,6 +11,7 @@ import { SearchComponent } from './search/search.component';
     imports: [
         CommonModule,
         HttpModule,
+        FormsModule,
         RoomRoutingModule,
     ],
     declarations: [

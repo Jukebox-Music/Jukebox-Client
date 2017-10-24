@@ -1,12 +1,26 @@
 <div class="row">
     <div class="col-12">
-        <form>
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Search</button>
-            </span>
-        </div>
+        <form (ngSubmit)="search()" #searchForm="ngForm">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchTerm" name="searchTerm" autocomplete="off"
+                    required>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </span>
+            </div>
         </form>
     </div>
 </div>
+
+<div class="row" *ngIf="results$ | async; let results; else loading">
+    <div class="col-12">{{results | json}}</div>
+</div>
+
+<ng-template #loading>
+    <div *ngIf="results$; else showIntro">
+        Loading
+    </div>
+    <ng-template #showIntro>
+        Search something
+    </ng-template>
+</ng-template>

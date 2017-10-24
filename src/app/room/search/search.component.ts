@@ -10,15 +10,16 @@ import { environment } from '../../../environments/environment';
     styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-    public results: Observable<SearchResult[]>;
+    public results$: Observable<SearchResult[]>;
+    public searchTerm: string;
 
     constructor(private http: Http) { }
 
     public ngOnInit(): void {
     }
 
-    public search(term: string): void {
-        this.results = this.http.get(`${environment.server.url}/search?q=${term}`)
+    public search(): void {
+        this.results$ = this.http.get(`${environment.server.url}/search?q=${this.searchTerm}`)
             .map((res) => res.json());
     }
 
