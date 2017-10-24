@@ -5,4 +5,7 @@
 
 export const environment = {
     production: false,
+    server: {
+        url: 'http://localhost:9000',
+    },
 };
