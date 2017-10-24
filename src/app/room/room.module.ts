@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
     imports: [
@@ -11,6 +12,7 @@ import { RoomComponent } from './room.component';
     ],
     declarations: [
         RoomComponent,
+        SearchComponent,
     ],
     exports: [
         RoomComponent,
