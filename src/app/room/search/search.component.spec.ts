@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { SocketService } from '../../socket.service';
 import { SearchItemComponent } from './search-item/search-item.component';
 import { SearchComponent } from './search.component';
 
@@ -18,6 +19,9 @@ describe('SearchComponent', () => {
             imports: [
                 FormsModule,
                 HttpModule,
+            ],
+            providers: [
+                SocketService,
             ],
         })
             .compileComponents();

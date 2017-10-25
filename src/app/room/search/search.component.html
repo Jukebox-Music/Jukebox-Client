@@ -12,9 +12,9 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-4" *ngIf="results$ | async; let results; else loading">
-        <app-search-item *ngFor="let song of results" [searchResult]="song"></app-search-item>
+<div class="card-columns" *ngIf="results$ | async; let results; else loading">
+    <div *ngFor="let song of results">
+        <app-search-item [searchResult]="song" (click)="addSong(song)"></app-search-item>
     </div>
 </div>
 
