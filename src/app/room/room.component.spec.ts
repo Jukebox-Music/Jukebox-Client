@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import 'rxjs/add/operator/map';
 
+import { SocketService } from '../socket.service';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
 
@@ -21,6 +22,9 @@ describe('RoomComponent', () => {
                 FormsModule,
                 HttpModule,
                 SearchModule,
+            ],
+            providers: [
+                SocketService,
             ],
         })
             .compileComponents();
