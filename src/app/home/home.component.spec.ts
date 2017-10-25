@@ -3,6 +3,7 @@ import 'rxjs/add/operator/filter';
 
 import { SocketService } from '../socket.service';
 import { HomeComponent } from './home.component';
+import { RoomCardComponent } from './room-card/room-card.component';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
@@ -12,6 +13,7 @@ describe('HomeComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 HomeComponent,
+                RoomCardComponent,
             ],
             providers: [
                 SocketService,
