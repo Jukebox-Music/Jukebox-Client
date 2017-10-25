@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
         this.rooms$ = socketService.Socket$
             .filter((message) => message.type === 'rooms')
             .map((message) => message.payload)
-            .map((rooms) => {
-                return _.values(_.mapKeys<Room>(rooms, (value, key: string) => {
+            .map((rooms: { [key: string]: Room }) => {
+                return _.values(_.map(rooms, (value, key) => {
                     value.name = key;
                     return value;
                 }));
