@@ -16,6 +16,14 @@ describe('RoomCardComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(RoomCardComponent);
         component = fixture.componentInstance;
+        component.room = {
+            name: '',
+            sockets: {
+                'h': true,
+            },
+            length: 1,
+            room: {},
+        };
         fixture.detectChanges();
     });
 
