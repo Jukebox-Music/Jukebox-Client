@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import 'rxjs/add/operator/filter';
 
 import { SocketService } from '../socket.service';
 import { HomeComponent } from './home.component';
