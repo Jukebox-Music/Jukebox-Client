@@ -13,7 +13,7 @@
 </div>
 
 <div class="row" *ngIf="results$ | async; let results; else loading">
-    <div class="col-12" *ngFor="let song of results">{{song | json}}</div>
+    <app-search-item *ngFor="let song of results" [searchResult]="song"></app-search-item>
 </div>
 
 <ng-template #loading>

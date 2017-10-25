@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import 'rxjs/add/operator/map';
 
 import { RoomComponent } from './room.component';
-import { SearchComponent } from './search/search.component';
+import { SearchModule } from './search/search.module';
 
 describe('RoomComponent', () => {
     let component: RoomComponent;
@@ -15,12 +15,12 @@ describe('RoomComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 RoomComponent,
-                SearchComponent,
             ],
             imports: [
                 RouterTestingModule,
                 FormsModule,
                 HttpModule,
+                SearchModule,
             ],
         })
             .compileComponents();

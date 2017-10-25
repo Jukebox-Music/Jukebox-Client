@@ -1,24 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { SearchComponent } from './search/search.component';
+import { SearchModule } from './search/search.module';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
-        FormsModule,
         RoomRoutingModule,
+        SearchModule,
     ],
     declarations: [
         RoomComponent,
-        SearchComponent,
-        SearchItemComponent,
     ],
     exports: [
         RoomComponent,
