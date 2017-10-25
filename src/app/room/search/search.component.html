@@ -12,8 +12,10 @@
     </div>
 </div>
 
-<div class="row" *ngIf="results$ | async; let results; else loading">
-    <app-search-item *ngFor="let song of results" [searchResult]="song"></app-search-item>
+<div class="row">
+    <div class="col-sm-4" *ngIf="results$ | async; let results; else loading">
+        <app-search-item *ngFor="let song of results" [searchResult]="song"></app-search-item>
+    </div>
 </div>
 
 <ng-template #loading>

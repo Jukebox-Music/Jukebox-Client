@@ -14,6 +14,7 @@ export class SocketService {
 
         this.socket$ = new Observable(observer => {
             this.socket.on('rooms', (data) => {
+                console.log(data);
                 observer.next({
                     type: 'rooms',
                     payload: data,
