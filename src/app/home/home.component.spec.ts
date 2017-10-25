@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import 'rxjs/add/operator/filter';
 
 import { SocketService } from '../socket.service';
@@ -14,6 +15,9 @@ describe('HomeComponent', () => {
             declarations: [
                 HomeComponent,
                 RoomCardComponent,
+            ],
+            imports: [
+                RouterTestingModule,
             ],
             providers: [
                 SocketService,
