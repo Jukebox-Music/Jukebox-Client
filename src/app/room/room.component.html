@@ -1,9 +1,14 @@
 <app-search></app-search>
-<div *ngIf="roomName$ | async; let roomName; else loading">
-    <h1>{{roomName}}</h1>
+<div *ngIf="room$ | async; let room; else loading">
+    <h1>{{room.name}}</h1>
 
 </div>
 
 <ng-template #loading>
     Loading
 </ng-template>
+{{room$ | async | json}}
+<audio controls="controls" id="audio_player">
+    <source src="{{serverUrl + '/song?url=' + 'https://www.youtube.com/watch?v=kJQP7kiw5Fk'}}" type="audio/ogg" />
+    Your browser does not support the audio element.
+  </audio>

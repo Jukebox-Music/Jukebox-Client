@@ -10,18 +10,13 @@ import { SocketService } from '../socket.service';
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-    public rooms$: Observable<Room[]>;
+    public rooms$: Observable<SocketRoom[]>;
 
     constructor(socketService: SocketService) {
         this.rooms$ = socketService.Socket$
             .filter((message) => message.type === 'rooms')
             .map((message) => message.payload)
-            .map((rooms: { [key: string]: Room }) => {
-                return _.values(_.map(rooms, (value, key) => {
-                    value.name = key;
-                    return value;
-                }));
-            });
+            .map((rooms: { [key: string]: SocketRoom }) => _.values(rooms));
     }
 
     public ngOnInit(): void {

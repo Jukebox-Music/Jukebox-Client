@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoomCardComponent {
-    @Input() public room: Room;
+    @Input() public room: SocketRoom;
 
     constructor() { }
 }

@@ -11,13 +11,18 @@ import { SocketService } from '../socket.service';
     styleUrls: ['./room.component.scss'],
 })
 export class RoomComponent implements OnInit {
-
     public roomName$: Observable<string>;
+    private room$: Observable<SocketMessage<Room>>;
+    private serverUrl = environment.server.url;
 
     constructor(route: ActivatedRoute, private socketService: SocketService) {
         this.roomName$ = route.queryParams.map((params) => {
             return params.name;
         });
+
+        this.room$ = socketService.Socket$
+            .filter((message) => message.type === 'room')
+            .map((message) => message.payload);
     }
 
     public ngOnInit(): void {

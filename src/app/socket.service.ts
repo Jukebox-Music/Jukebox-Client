@@ -20,6 +20,13 @@ export class SocketService {
                     payload: data,
                 });
             });
+
+            this.socket.on('room', (data) => {
+                observer.next({
+                    type: 'room',
+                    payload: data,
+                });
+            });
         });
     }
 
