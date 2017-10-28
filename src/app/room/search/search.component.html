@@ -1,28 +1,35 @@
-<div class="row">
-    <div class="col-12">
+<div class="background" [ngClass]="{'show-background': isExpanded}" (click)="isExpanded = false"></div>
+<div class="filler" *ngIf="isExpanded">
+
+</div>
+<div class="wrapper" [ngClass]="{'show': isExpanded}">
+    <div class="close-button float-right" [ngClass]="{'close-button-show': isExpanded}" (click)="isExpanded = false">
+        <i class="fa fa-times fa-3x" aria-hidden="true"></i>
+    </div>
+    <div>
         <form (ngSubmit)="search()" #searchForm="ngForm">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchTerm" name="searchTerm" autocomplete="off"
-                    required>
+                    required (click)="isExpanded = true">
                 <span class="input-group-btn">
                     <button class="btn btn-secondary" type="submit">Search</button>
                 </span>
             </div>
         </form>
     </div>
-</div>
 
-<div class="card-columns" *ngIf="results$ | async; let results; else loading">
-    <div *ngFor="let song of results">
-        <app-search-item [searchResult]="song" (click)="addSong(song)"></app-search-item>
+    <div class="card-columns" *ngIf="results$ | async; let results; else loading">
+        <div *ngFor="let song of results">
+            <app-search-item [searchResult]="song" (click)="addSong(song)"></app-search-item>
+        </div>
     </div>
-</div>
 
-<ng-template #loading>
-    <div *ngIf="results$; else showIntro">
-        Loading
-    </div>
-    <ng-template #showIntro>
-        Search something
+    <ng-template #loading>
+        <div *ngIf="results$; else showIntro">
+            Loading
+        </div>
+        <ng-template #showIntro>
+            Search something
+        </ng-template>
     </ng-template>
-</ng-template>
+</div>

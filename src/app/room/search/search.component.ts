@@ -13,8 +13,11 @@ import { SocketService } from '../../socket.service';
 export class SearchComponent implements OnInit {
     public results$: Observable<SearchResult[]>;
     public searchTerm: string;
+    public isExpanded: boolean;
 
-    constructor(private http: Http, private socketService: SocketService) { }
+    constructor(private http: Http, private socketService: SocketService) {
+        this.isExpanded = false;
+    }
 
     public ngOnInit(): void {
     }
@@ -27,5 +30,4 @@ export class SearchComponent implements OnInit {
     public addSong(song: SearchResult): void {
         this.socketService.Socket.emit('add-song', song);
     }
-
 }
