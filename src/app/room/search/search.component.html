@@ -1,7 +1,5 @@
 <div class="background" [ngClass]="{'show-background': isExpanded}" (click)="isExpanded = false"></div>
-<div class="filler" *ngIf="isExpanded">
-
-</div>
+<div class="filler" *ngIf="isExpanded" [style.height.px]="dimensions.y" [style.width.px]="dimensions.x"></div>
 <div class="wrapper" [ngClass]="{'show': isExpanded}">
     <div class="close-button float-right" [ngClass]="{'close-button-show': isExpanded}" (click)="isExpanded = false">
         <i class="fa fa-times fa-3x" aria-hidden="true"></i>

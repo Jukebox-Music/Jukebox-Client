@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,16 +10,22 @@ import { SocketService } from '../../socket.service';
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements AfterViewInit {
     public results$: Observable<SearchResult[]>;
     public searchTerm: string;
     public isExpanded: boolean;
+    public dimensions: { x: number, y: number };
 
-    constructor(private http: Http, private socketService: SocketService) {
+    constructor(private http: Http, private socketService: SocketService, private el: ElementRef) {
         this.isExpanded = false;
     }
 
-    public ngOnInit(): void {
+    public ngAfterViewInit(): void {
+        this.dimensions = {
+            x: this.el.nativeElement.offsetWidth,
+            y: this.el.nativeElement.offsetHeight,
+        };
+        console.log(this.dimensions);
     }
 
     public search(): void {
