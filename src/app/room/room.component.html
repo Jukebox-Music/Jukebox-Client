@@ -2,9 +2,7 @@
 <div *ngIf="room$ | async; let room; else loading">
     <h1>{{room.name}}</h1>
 
-    <audio controls="controls" id="audio_player">
-        <source src="{{serverUrl + '/song?url=' + 'https://www.youtube.com/watch?v=kJQP7kiw5Fk'}}" type="audio/ogg" /> Your browser does not support the audio element.
-    </audio>
+    <app-player></app-player>
 
     <table class="table table-hover">
         <thead>

@@ -25,7 +25,6 @@ export class SearchComponent implements AfterViewInit {
             x: this.el.nativeElement.offsetWidth,
             y: this.el.nativeElement.offsetHeight,
         };
-        console.log(this.dimensions);
     }
 
     public search(): void {

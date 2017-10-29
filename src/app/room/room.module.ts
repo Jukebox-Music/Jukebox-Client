@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
+import { PlayerComponent } from './player/player.component';
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
@@ -15,6 +16,7 @@ import { SearchModule } from './search/search.module';
     ],
     declarations: [
         RoomComponent,
+        PlayerComponent,
     ],
     exports: [
         RoomComponent,

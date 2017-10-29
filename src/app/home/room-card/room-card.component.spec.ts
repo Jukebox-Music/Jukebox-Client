@@ -26,7 +26,10 @@ describe('RoomCardComponent', () => {
                 'h': true,
             },
             length: 1,
-            room: {},
+            room: {
+                songs: [],
+                playState: 'play',
+            },
         };
         fixture.detectChanges();
     });

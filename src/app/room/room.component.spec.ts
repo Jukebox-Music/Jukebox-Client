@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import 'rxjs/add/operator/map';
 
 import { SocketService } from '../socket.service';
+import { PlayerComponent } from './player/player.component';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
 
@@ -16,6 +17,7 @@ describe('RoomComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 RoomComponent,
+                PlayerComponent,
             ],
             imports: [
                 RouterTestingModule,

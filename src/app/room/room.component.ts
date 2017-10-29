@@ -30,5 +30,4 @@ export class RoomComponent implements OnInit {
             this.socketService.Socket.emit('join', name);
         });
     }
-
 }

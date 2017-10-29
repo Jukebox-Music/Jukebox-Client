@@ -6,7 +6,7 @@
     </div>
     <div>
         <form (ngSubmit)="search()" #searchForm="ngForm">
-            <div class="input-group">
+            <div class="input-group form-group">
                 <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchTerm" name="searchTerm" autocomplete="off"
                     required (click)="isExpanded = true">
                 <span class="input-group-btn">
