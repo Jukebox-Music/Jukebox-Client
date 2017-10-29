@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { environment } from '../../environments/environment';
 import { SocketService } from '../socket.service';
 
 @Component({
@@ -13,7 +12,6 @@ import { SocketService } from '../socket.service';
 export class RoomComponent implements OnInit {
     public roomName$: Observable<string>;
     private room$: Observable<SocketMessage<Room>>;
-    private serverUrl = environment.server.url;
 
     constructor(route: ActivatedRoute, private socketService: SocketService) {
         this.roomName$ = route.queryParams.map((params) => {
