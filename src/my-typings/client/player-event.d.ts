@@ -2,5 +2,6 @@ type PlayerEventType = 'play' | 'seek' | 'pause';
 
 interface PlayerEvent {
     type: PlayerEventType;
-    payload?: any;
+    seek: number;
+    state: "play" | "pause";
 }

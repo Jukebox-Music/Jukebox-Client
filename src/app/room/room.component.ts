@@ -29,7 +29,11 @@ export class RoomComponent implements OnInit {
         });
     }
 
-    public playerEvent(e: any): void {
+    public playerEvent(e: PlayerEvent): void {
         console.log(e);
+        this.socketService.Socket.emit('song-state', {
+            type: e.state,
+            seek: e.seek,
+        } as SongState);
     }
 }

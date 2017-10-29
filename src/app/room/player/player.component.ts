@@ -22,17 +22,22 @@ export class PlayerComponent implements OnInit {
         this.player.nativeElement.addEventListener('seeked', (e) => {
             this.event.emit({
                 type: 'seek',
-                payload: e.srcElement.currentTime,
+                seek: e.srcElement.currentTime,
+                state: 'pause',
             });
         }, true);
-        this.player.nativeElement.addEventListener('play', () => {
+        this.player.nativeElement.addEventListener('play', (e) => {
             this.event.emit({
                 type: 'play',
+                seek: e.srcElement.currentTime,
+                state: 'play',
             });
         }, true);
-        this.player.nativeElement.addEventListener('pause', () => {
+        this.player.nativeElement.addEventListener('pause', (e) => {
             this.event.emit({
                 type: 'pause',
+                seek: e.srcElement.currentTime,
+                state: 'pause',
             });
         }, true);
     }
