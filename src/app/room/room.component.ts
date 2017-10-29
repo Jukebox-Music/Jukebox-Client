@@ -10,8 +10,8 @@ import { SocketService } from '../socket.service';
     styleUrls: ['./room.component.scss'],
 })
 export class RoomComponent implements OnInit {
-    public roomName$: Observable<string>;
-    private room$: Observable<SocketMessage<Room>>;
+    private roomName$: Observable<string>;
+    public room$: Observable<SocketMessage<Room>>;
 
     constructor(route: ActivatedRoute, private socketService: SocketService) {
         this.roomName$ = route.queryParams.map((params) => {
