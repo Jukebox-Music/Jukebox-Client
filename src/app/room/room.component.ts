@@ -28,4 +28,8 @@ export class RoomComponent implements OnInit {
             this.socketService.Socket.emit('join', name);
         });
     }
+
+    public playerEvent(e: any): void {
+        console.log(e);
+    }
 }

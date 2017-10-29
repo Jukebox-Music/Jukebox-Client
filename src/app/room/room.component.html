@@ -2,7 +2,7 @@
 <div *ngIf="room$ | async; let room; else loading">
     <h1>{{room.name}}</h1>
 
-    <app-player></app-player>
+    <app-player (event)="playerEvent($event)"></app-player>
 
     <table class="table table-hover">
         <thead>
