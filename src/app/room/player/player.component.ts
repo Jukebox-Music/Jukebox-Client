@@ -15,7 +15,7 @@ interface PlayerEvent {
 export class PlayerComponent implements OnInit {
     private serverUrl = environment.server.url;
     @ViewChild('player') public player: ElementRef;
-    @Output() event = new EventEmitter<PlayerEvent>();
+    @Output() public event = new EventEmitter<PlayerEvent>();
 
     constructor() { }
 
