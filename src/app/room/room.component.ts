@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { SocketService } from '../socket.service';
+import { PlayerComponent } from './player/player.component';
 
 @Component({
     selector: 'app-room',
@@ -11,7 +12,8 @@ import { SocketService } from '../socket.service';
 })
 export class RoomComponent implements OnInit {
     private roomName$: Observable<string>;
-    public room$: Observable<SocketMessage<Room>>;
+    public room$: Observable<SocketRoom>;
+    @ViewChild('player') public player: PlayerComponent;
 
     constructor(route: ActivatedRoute, private socketService: SocketService) {
         this.roomName$ = route.queryParams.map((params) => {
@@ -20,7 +22,19 @@ export class RoomComponent implements OnInit {
 
         this.room$ = socketService.Socket$
             .filter((message) => message.type === 'room')
-            .map((message) => message.payload);
+            .map((message) => message.payload as SocketRoom)
+            .do((room) => {
+                if (!this.player) {
+                    return;
+                }
+
+                if (!room.room.songs[0]) {
+                    return;
+                }
+
+                this.player.PlayState = room.room.playState;
+                this.player.Seek = room.room.songs[0].seek;
+            });
     }
 
     public ngOnInit(): void {

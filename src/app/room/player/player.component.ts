@@ -18,6 +18,21 @@ export class PlayerComponent implements OnInit {
         this.initPlayer();
     }
 
+    public set PlayState(state: PlayState) {
+        switch (state) {
+            case 'play':
+                this.player.nativeElement.play();
+                break;
+            case 'pause':
+                this.player.nativeElement.pause();
+                break;
+        }
+    }
+
+    public set Seek(seek: number) {
+        this.player.nativeElement.currentTime = seek;
+    }
+
     private initPlayer(): void {
         this.player.nativeElement.addEventListener('seeked', (e) => {
             this.event.emit({

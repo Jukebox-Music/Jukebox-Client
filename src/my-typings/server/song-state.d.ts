@@ -1,4 +1,4 @@
 interface SongState {
-    type: "play" | "pause";
+    type: PlayState;
     seek: number;
 }

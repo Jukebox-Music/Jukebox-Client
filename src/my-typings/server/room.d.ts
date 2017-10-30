@@ -1,4 +1,4 @@
 interface Room {
     songs: Song[];
-    playState: string;
+    playState: "play" | "pause";
 }
