@@ -8,10 +8,12 @@
         "milli",
         "Truthy",
         "gitignore",
-        "Injectable"
+        "Injectable",
+        "ngrx"
     ],
     "ignorePaths": [
         ".gitignore",
-        "cSpell.json"
+        "cSpell.json",
+        "tslint.json"
     ]
 }

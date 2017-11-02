@@ -5,6 +5,7 @@ import 'rxjs/add/operator/filter';
 import { SocketService } from '../socket.service';
 import { HomeComponent } from './home.component';
 import { RoomCardComponent } from './room-card/room-card.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
@@ -15,6 +16,7 @@ describe('HomeComponent', () => {
             declarations: [
                 HomeComponent,
                 RoomCardComponent,
+                SignUpComponent,
             ],
             imports: [
                 RouterTestingModule,

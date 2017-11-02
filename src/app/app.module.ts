@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { RoomModule } from './room/room.module';
 import { SocketService } from './socket.service';
+import { AppStoreModule } from './store/app-store.module';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { SocketService } from './socket.service';
         AppRoutingModule,
         RoomModule,
         HomeModule,
+        AppStoreModule,
     ],
     providers: [
         SocketService,
