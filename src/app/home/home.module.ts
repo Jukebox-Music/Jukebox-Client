@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { RoomCardComponent } from './room-card/room-card.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { NewRoomComponent } from './new-room/new-room.component';
 
 @NgModule({
     imports: [
@@ -17,6 +18,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
         HomeComponent,
         RoomCardComponent,
         SignUpComponent,
+        NewRoomComponent,
     ],
 })
 export class HomeModule { }

@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { SocketService } from '../socket.service';
 import { AppStoreModule } from '../store/app-store.module';
 import { HomeComponent } from './home.component';
+import { NewRoomComponent } from './new-room/new-room.component';
 import { RoomCardComponent } from './room-card/room-card.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -19,6 +20,7 @@ describe('HomeComponent', () => {
                 HomeComponent,
                 RoomCardComponent,
                 SignUpComponent,
+                NewRoomComponent,
             ],
             imports: [
                 RouterTestingModule,
