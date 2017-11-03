@@ -3,4 +3,4 @@
         <input class="form-control" rows="3" placeholder="Enter to Send" name="text" [(ngModel)]="text" autocomplete="off">
     </div>
 </form>
-{{chat$ | async}}
+{{chat$ | async | json}}

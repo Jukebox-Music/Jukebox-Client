@@ -21,8 +21,7 @@ export class RoomComponent implements OnInit {
         });
 
         this.room$ = socketService.Socket$
-            .filter((message) => message.type === 'room')
-            .map((message) => message.payload as SocketRoom)
+            .ofType<SocketRoom>('room')
             .do((room) => {
                 if (!this.player) {
                     return;
