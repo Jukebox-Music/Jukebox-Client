@@ -11,9 +11,4 @@ export class ChatComponent implements OnInit {
 
     public ngOnInit(): void {
     }
-
-    public submit(e: any): void {
-        console.log(e);
-    }
-
 }

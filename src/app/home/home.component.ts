@@ -27,9 +27,6 @@ export class HomeComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.name$.subscribe((e) => {
-            console.log(e);
-        });
     }
 
 }
