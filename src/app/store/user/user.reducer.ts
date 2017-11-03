@@ -1,13 +1,19 @@
 import * as UserActions from './user.actions';
 import { UserModel } from './user.model';
 
-export function userReducer(state: UserModel = { name: 'un-named' }, action: UserActions.Actions): UserModel {
+const defaultName = 'Un-named';
+
+export function userReducer(state: UserModel = { name: defaultName }, action: UserActions.Actions): UserModel {
     switch (action.type) {
         case UserActions.ADD_DATA:
             return action.payload;
         case UserActions.ADD_NAME:
-            state.name = action.payload;
-            return state;
+            const name = !!action.payload ? action.payload : defaultName;
+            const newState = {
+                ...state,
+                name: name,
+            };
+            return newState;
         default:
             return state;
     }

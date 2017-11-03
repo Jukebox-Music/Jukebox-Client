@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class="display-1">Jukebox</h1>
-
+    <p class="lead">Welcome {{name$ | async}}!</p>
     <hr>
 
     <div *ngIf="rooms$ | async; let rooms; else loading">
