@@ -17,9 +17,8 @@ export class HomeComponent implements OnInit {
 
     constructor(socketService: SocketService, store: Store<AppState>) {
         this.rooms$ = socketService.Socket$
-            .filter((message) => message.type === 'rooms')
-            .map((message) => message.payload)
-            .map((rooms: { [key: string]: SocketRoom }) => _.values(rooms));
+            .ofType<{ [key: string]: SocketRoom }>('rooms')
+            .map((rooms) => _.values(rooms));
 
         this.name$ = store.select('user').map((user) => {
             return user.name;

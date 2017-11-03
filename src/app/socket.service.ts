@@ -1,40 +1,46 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subscriber } from 'rxjs/Subscriber';
 import * as io from 'socket.io-client';
 
 import { environment } from '../environments/environment';
 
 @Injectable()
 export class SocketService {
-    private socket$: Observable<SocketMessage>;
+    private socket$: SocketObservable;
     private socket: SocketIOClient.Socket;
 
     constructor() {
         this.socket = io(`${environment.server.url}`);
 
-        this.socket$ = new Observable(observer => {
-            this.socket.on('rooms', (data) => {
-                console.log(data);
-                observer.next({
-                    type: 'rooms',
-                    payload: data,
-                });
-            });
+        this.socket$ = new SocketObservable(observer => {
+            this.addSocketEventListener<{ [key: string]: SocketRoom }>('rooms', observer);
+            this.addSocketEventListener<SocketRoom>('room', observer);
+            this.addSocketEventListener<ChatMessage>('chat-response', observer);
+        });
+    }
 
-            this.socket.on('room', (data) => {
-                observer.next({
-                    type: 'room',
-                    payload: data,
-                });
+    private addSocketEventListener<T>(name: string, observer: Subscriber<SocketMessage<T>>): void {
+        this.socket.on(name, (data) => {
+            observer.next({
+                type: name,
+                payload: data as T,
             });
         });
     }
 
-    public get Socket$(): Observable<SocketMessage> {
+    public get Socket$(): SocketObservable {
         return this.socket$;
     }
 
     public get Socket(): SocketIOClient.Socket {
         return this.socket;
+    }
+}
+
+class SocketObservable extends Observable<SocketMessage> {
+    public ofType<T>(type: string): Observable<T> {
+        return this.filter((message) => message.type === type)
+            .map((message) => message.payload as T);
     }
 }

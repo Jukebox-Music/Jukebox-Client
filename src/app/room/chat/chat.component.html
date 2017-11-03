@@ -1,5 +1,6 @@
-<form>
+<form (ngSubmit)="submit(text)" #form="ngForm">
     <div class="form-group">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter to Send"></textarea>
+        <input class="form-control" rows="3" placeholder="Enter to Send" name="text" [(ngModel)]="text" autocomplete="off">
     </div>
 </form>
+{{chat$ | async}}
