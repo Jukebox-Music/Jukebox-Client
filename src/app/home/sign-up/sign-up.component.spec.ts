@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 import { SignUpComponent } from './sign-up.component';
 
@@ -12,6 +13,7 @@ describe('SignUpComponent', () => {
             declarations: [SignUpComponent],
             imports: [
                 FormsModule,
+                StoreModule.forRoot([]),
             ],
         })
             .compileComponents();

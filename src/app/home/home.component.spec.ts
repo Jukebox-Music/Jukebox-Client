@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import 'rxjs/add/operator/filter';
+import { StoreModule } from '@ngrx/store';
 
 import { SocketService } from '../socket.service';
+import { AppStoreModule } from '../store/app-store.module';
 import { HomeComponent } from './home.component';
 import { RoomCardComponent } from './room-card/room-card.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -20,6 +22,8 @@ describe('HomeComponent', () => {
             ],
             imports: [
                 RouterTestingModule,
+                FormsModule,
+                AppStoreModule,
             ],
             providers: [
                 SocketService,

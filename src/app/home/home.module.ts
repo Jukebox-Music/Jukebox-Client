@@ -13,6 +13,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
         HomeRoutingModule,
         FormsModule,
     ],
-    declarations: [HomeComponent, RoomCardComponent, SignUpComponent],
+    declarations: [
+        HomeComponent,
+        RoomCardComponent,
+        SignUpComponent,
+    ],
 })
 export class HomeModule { }
