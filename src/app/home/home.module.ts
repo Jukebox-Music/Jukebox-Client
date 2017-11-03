@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { NewRoomComponent } from './new-room/new-room.component';
 import { RoomCardComponent } from './room-card/room-card.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { NewRoomComponent } from './new-room/new-room.component';
 
 @NgModule({
     imports: [
