@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { SocketService } from '../../socket.service';
 
@@ -9,7 +10,8 @@ import { SocketService } from '../../socket.service';
 })
 export class ChatComponent implements OnInit {
     public chatLog: string[];
-    public chat$;
+    public text: string;
+    public chat$: Observable<ChatMessage>;
 
     constructor(private socketService: SocketService) {
         this.chatLog = [];

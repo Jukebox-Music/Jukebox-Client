@@ -10,6 +10,7 @@ import { AddNameAction } from '../../store/user';
     styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
+    public name: string;
 
     constructor(private store: Store<AppState>) { }
 
