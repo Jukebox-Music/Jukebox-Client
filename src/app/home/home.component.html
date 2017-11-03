@@ -3,27 +3,26 @@
     <p class="lead">Welcome {{name$ | async}}!</p>
     <hr>
 
-    <div *ngIf="rooms$ | async; let rooms; else loading">
-        {{rooms | json}}
-        <div class="card-columns">
-            <app-sign-up></app-sign-up>
-            <app-new-room></app-new-room>
-            <div class="card p-3">
-                <blockquote class="blockquote mb-0 card-body">
-                    <p>Best Music service ever.</p>
-                    <footer class="blockquote-footer">
-                        <small class="text-muted">
-                            Totally legit reviewer
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <app-room-card *ngFor="let room of rooms" [room]="room"></app-room-card>
-
+    <div class="card-columns">
+        <app-sign-up></app-sign-up>
+        <app-new-room></app-new-room>
+        <div class="card p-3">
+            <blockquote class="blockquote mb-0 card-body">
+                <p>Best Music service ever.</p>
+                <footer class="blockquote-footer">
+                    <small class="text-muted">
+                        Totally legit reviewer
+                    </small>
+                </footer>
+            </blockquote>
         </div>
-    </div>
+        <div *ngIf="rooms$ | async; let rooms; else loading">
+            {{rooms | json}}
+            <app-room-card *ngFor="let room of rooms" [room]="room"></app-room-card>
+        </div>
 
-    <ng-template #loading>
-        loading rooms...
-    </ng-template>
+        <ng-template #loading>
+            loading rooms...
+        </ng-template>
+    </div>
 </div>
