@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { PlayerComponent } from './player.component';
 import { SeekComponent } from './seek/seek.component';
@@ -12,6 +13,9 @@ describe('PlayerComponent', () => {
             declarations: [
                 PlayerComponent,
                 SeekComponent,
+            ],
+            imports: [
+                FormsModule,
             ],
         })
             .compileComponents();

@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 export class PlayerComponent implements OnInit {
     @Output() public event = new EventEmitter<PlayerEvent>();
     private audio: HTMLAudioElement;
+    public seekPercentage = 50.454;
 
     constructor() { }
 
