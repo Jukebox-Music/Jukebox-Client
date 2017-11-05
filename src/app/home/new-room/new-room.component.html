@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Create Room</label>
                 <input type="email" class="form-control" [(ngModel)]="roomName" placeholder="Enter room name" name="roomName">
-                <small id="emailHelp" class="form-text text-muted">Create a room for others to join to share music in real time.</small>
+                <small id="emailHelp" class="form-text text-muted">Create a room for others to join to share music in real time. A random name is assigned if you do not specify one.</small>
             </div>
             <button type="submit" class="btn btn-primary" [routerLink]="['/room']" [queryParams]="{name: roomName}">Create</button>
         </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { hri } from 'human-readable-ids';
 
 @Component({
     selector: 'app-new-room',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewRoomComponent implements OnInit {
     public roomName: string;
+    public randomId: string;
 
-    constructor() { }
+    constructor() {
+        this.roomName = hri.random();
+    }
 
     public ngOnInit(): void {
     }
