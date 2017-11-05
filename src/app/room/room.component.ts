@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { SocketService } from '../socket.service';
@@ -15,7 +15,7 @@ export class RoomComponent implements OnInit {
     public room$: Observable<SocketRoom>;
     @ViewChild('player') public player: PlayerComponent;
 
-    constructor(route: ActivatedRoute, private socketService: SocketService) {
+    constructor(route: ActivatedRoute, private socketService: SocketService, private router: Router) {
         this.roomName$ = route.queryParams.map((params) => {
             return params.name;
         });
@@ -37,9 +37,13 @@ export class RoomComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.roomName$.subscribe((name) => {
+        this.roomName$.do((name) => {
+            if (!name) {
+                this.router.navigate(['/']);
+                return;
+            }
             this.socketService.Socket.emit('join', name);
-        });
+        }).subscribe();
     }
 
     public playerEvent(e: PlayerEvent): void {
