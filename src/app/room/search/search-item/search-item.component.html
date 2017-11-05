@@ -1,5 +1,7 @@
 <div class="card mb-3">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="crop">
+        <img class="card-img-top" [src]="searchResult.thumbnails.high.url" alt="Search result thumbnail">
+    </div>
     <div class="card-body">
         <h4 class="card-title">{{searchResult.title}}</h4>
         <p class="card-text">{{searchResult.description}}</p>
