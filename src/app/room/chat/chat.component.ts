@@ -20,7 +20,9 @@ export class ChatComponent implements OnInit {
             .ofType<ChatMessage>('chat-response')
             .do((m) => {
                 this.chatLog.push(m);
-                console.log(this.chatLog);
+                setTimeout(() => {
+                    this.chat.nativeElement.scrollTop = this.chat.nativeElement.scrollHeight;
+                }, 100);
             });
     }
 
