@@ -7,39 +7,48 @@ $main-bg-color: #fff;
     position: relative;
 }
 
-.expand {
-    position: fixed;
-    top: 50px;
-}
-
 .close-button {
-    cursor: pointer;
-    display: none;
-    margin: 10px 0 0;
-}
-
-.close-button-show {
     color: $main-bg-color;
+    cursor: pointer;
     display: block;
+    margin: 10px 0 0;
     position: fixed;
     right: 10%;
     top: 15%;
     transform: translate(0, -70px);
+    z-index: 11;
 }
 
-.show {
-    bottom: 10%;
-    box-shadow: 0 3px 50px $shadow-color;
-    left: 10%;
-    position: fixed;
-    right: 10%;
-    top: 15%;
+.fake-search-box {
+    padding: 20px;
 }
 
 .wrapper {
     background-color: $main-bg-color;
-    overflow: scroll;
-    padding: 20px;
+    bottom: 10%;
+    box-shadow: 0 3px 50px $shadow-color;
+    display: flex;
+    flex-direction: column;
+    left: 10%;
+    overflow: hidden;
+    position: fixed;
+    right: 10%;
+    top: 15%;
+    z-index: 11;
+
+    .search-box {
+        padding: 20px;
+    }
+
+    .body {
+        flex-grow: 1;
+        overflow-y: scroll;
+        padding: 20px;
+
+        .search-results {
+            height: 100%;
+        }
+    }
 }
 
 .background {
@@ -52,6 +61,7 @@ $main-bg-color: #fff;
     right: 0;
     top: 0;
     transition: opacity .5s;
+    z-index: 10;
 }
 
 .show-background {

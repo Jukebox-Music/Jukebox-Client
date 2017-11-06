@@ -1,11 +1,21 @@
 <div class="background" [ngClass]="{'show-background': isExpanded}" (click)="isExpanded = false"></div>
 <div *ngIf="isExpanded" [style.height.px]="dimensions.y" [style.width.px]="dimensions.x"></div>
-<div class="close-button" [ngClass]="{'close-button-show': isExpanded}" (click)="isExpanded = false">
+<div class="close-button" [hidden]="!isExpanded" (click)="isExpanded = false">
     <i class="fa fa-times fa-3x" aria-hidden="true"></i>
 </div>
 
-<div class="wrapper" [ngClass]="{'show': isExpanded}">
-    <div>
+<div class="fake-search-box" [hidden]="isExpanded">
+    <div class="input-group form-group">
+        <input type="text" class="form-control" placeholder="Search for..." (click)="isExpanded = true" [(ngModel)]="searchTerm" name="searchTerm">
+        <span class="input-group-btn">
+            <button class="btn btn-secondary">Search</button>
+        </span>
+    </div>
+</div>
+
+
+<div class="wrapper" [hidden]="!isExpanded">
+    <div class="search-box">
         <form (ngSubmit)="search()" #searchForm="ngForm">
             <div class="input-group form-group">
                 <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchTerm" name="searchTerm" autocomplete="off"
@@ -17,8 +27,8 @@
         </form>
     </div>
 
-    <div [hidden]="!isExpanded">
-        <div class="card-columns" *ngIf="results$ | async; let results; else loading">
+    <div [hidden]="!isExpanded" class="body">
+        <div class="card-columns search-results" *ngIf="results$ | async; let results; else loading">
             <div *ngFor="let song of results">
                 <app-search-item [searchResult]="song" (click)="addSong(song)"></app-search-item>
             </div>
