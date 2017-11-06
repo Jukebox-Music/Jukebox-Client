@@ -17,18 +17,20 @@
         </form>
     </div>
 
-    <div class="card-columns" *ngIf="results$ | async; let results; else loading">
-        <div *ngFor="let song of results">
-            <app-search-item [searchResult]="song" (click)="addSong(song)"></app-search-item>
+    <div [hidden]="!isExpanded">
+        <div class="card-columns" *ngIf="results$ | async; let results; else loading">
+            <div *ngFor="let song of results">
+                <app-search-item [searchResult]="song" (click)="addSong(song)"></app-search-item>
+            </div>
         </div>
-    </div>
 
-    <ng-template #loading>
-        <div *ngIf="results$; else showIntro">
-            Loading
-        </div>
-        <ng-template #showIntro>
-            Search something
+        <ng-template #loading>
+            <div *ngIf="results$; else showIntro">
+                Loading
+            </div>
+            <ng-template #showIntro>
+                Search something
+            </ng-template>
         </ng-template>
-    </ng-template>
+    </div>
 </div>

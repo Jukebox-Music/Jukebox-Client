@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { SocketService } from '../socket.service';
 import { ChatComponent } from './chat/chat.component';
-import { PlayerComponent } from './player/player.component';
+import { PlayerModule } from './player/player.module';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
 
@@ -17,7 +17,6 @@ describe('RoomComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 RoomComponent,
-                PlayerComponent,
                 ChatComponent,
             ],
             imports: [
@@ -25,6 +24,7 @@ describe('RoomComponent', () => {
                 FormsModule,
                 HttpModule,
                 SearchModule,
+                PlayerModule,
             ],
             providers: [
                 SocketService,

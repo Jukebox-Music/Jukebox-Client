@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ChatComponent } from './chat/chat.component';
-import { PlayerComponent } from './player/player.component';
+import { PlayerModule } from './player/player.module';
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
@@ -16,10 +16,10 @@ import { SearchModule } from './search/search.module';
         RoomRoutingModule,
         SearchModule,
         FormsModule,
+        PlayerModule,
     ],
     declarations: [
         RoomComponent,
-        PlayerComponent,
         ChatComponent,
     ],
     exports: [

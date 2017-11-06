@@ -1,19 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
-import { PlayerComponent } from './player.component';
-import { SeekComponent } from './seek/seek.component';
+import { SeekComponent } from './seek.component';
 
-describe('PlayerComponent', () => {
-    let component: PlayerComponent;
-    let fixture: ComponentFixture<PlayerComponent>;
+describe('SeekComponent', () => {
+    let component: SeekComponent;
+    let fixture: ComponentFixture<SeekComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                PlayerComponent,
-                SeekComponent,
-            ],
+            declarations: [SeekComponent],
             imports: [
                 FormsModule,
             ],
@@ -22,7 +18,7 @@ describe('PlayerComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(PlayerComponent);
+        fixture = TestBed.createComponent(SeekComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
