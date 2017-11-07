@@ -1,3 +1,9 @@
-<button class="play btn" (click)="play()">play</button>
-<button class="play btn" (click)="pause()">pause</button>
+<button class="play btn btn-link btn-lg" (click)="play()">
+    <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
+</button>
+
+<button class="play btn btn-link btn-link btn-lg" (click)="pause()">
+    <i class="fa fa-pause-circle fa-5x" aria-hidden="true"></i>
+</button>
+
 <app-seek [(ngModel)]="seekPercentage" name="seekPercentage"></app-seek>{{seekPercentage}}
