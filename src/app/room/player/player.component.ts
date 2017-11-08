@@ -15,20 +15,19 @@ export class PlayerComponent implements OnInit {
 
     constructor() {
         Observable
-        .interval(50)
-        .do(() => {
-            if (this.audio) {
-                console.log(this.audio.currentTime);
-            }
-        })
-        .take(3);
+            .interval(50)
+            .do(() => {
+                if (this.audio) {
+                    console.log(this.audio.currentTime);
+                }
+            })
+            .take(3);
     }
 
     public ngOnInit(): void {
     }
 
     public play(): void {
-        console.log('playing');
         this.event.emit({
             type: 'play',
             seek: this.audio.currentTime,
@@ -44,10 +43,10 @@ export class PlayerComponent implements OnInit {
         });
     }
 
-    public seek(): void {
+    public seek(percentage: number): void {
         this.event.emit({
             type: 'seek',
-            seek: this.audio.currentTime,
+            seek: percentage / 100 * this.audio.duration,
             state: this.audio.paused ? 'pause' : 'play',
         });
     }

@@ -1,5 +1,6 @@
 import { Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-seek',
@@ -25,6 +26,8 @@ export class SeekComponent implements OnInit, ControlValueAccessor {
     }
 
     public ngOnInit(): void {
+        Observable.interval(5).do(() => {
+        }).subscribe();
     }
 
     public clickSeek(e: MouseEvent): void {
@@ -38,7 +41,7 @@ export class SeekComponent implements OnInit, ControlValueAccessor {
     }
 
     public writeValue(obj: number): void {
-        if (!obj) {
+        if (!obj || isNaN(obj)) {
             return;
         }
 

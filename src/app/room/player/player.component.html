@@ -12,4 +12,4 @@
     </button>
 </div>
 
-<app-seek [(ngModel)]="SeekPercentage" name="seekPercentage" [disabled]="!audio"></app-seek>{{SeekPercentage}}%
+<app-seek [(ngModel)]="SeekPercentage" name="seekPercentage" [disabled]="!audio" (ngModelChange)="seek($event)"></app-seek>
