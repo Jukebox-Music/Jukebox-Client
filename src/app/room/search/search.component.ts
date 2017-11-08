@@ -34,5 +34,7 @@ export class SearchComponent implements AfterViewInit {
 
     public addSong(song: SearchResult): void {
         this.socketService.Socket.emit('add-song', song);
+        this.isExpanded = false;
+        this.searchTerm = undefined;
     }
 }
