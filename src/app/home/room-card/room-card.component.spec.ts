@@ -21,7 +21,6 @@ describe('RoomCardComponent', () => {
         fixture = TestBed.createComponent(RoomCardComponent);
         component = fixture.componentInstance;
         component.room = {
-            name: '',
             sockets: {
                 'h': true,
             },
@@ -29,6 +28,7 @@ describe('RoomCardComponent', () => {
             room: {
                 songs: [],
                 playState: 'play',
+                name: '',
             },
         };
         fixture.detectChanges();

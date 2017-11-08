@@ -12,7 +12,7 @@ import { PlayerComponent } from './player/player.component';
 })
 export class RoomComponent implements OnInit {
     private roomName$: Observable<string>;
-    public room$: Observable<SocketRoom>;
+    public room$: Observable<Room>;
     @ViewChild(PlayerComponent) public player: PlayerComponent;
 
     constructor(route: ActivatedRoute, private socketService: SocketService, private router: Router) {
@@ -21,15 +21,15 @@ export class RoomComponent implements OnInit {
         });
 
         this.room$ = socketService.Socket$
-            .ofType<SocketRoom>('room')
+            .ofType<Room>('room')
             .do((room) => {
                 setTimeout(() => {
-                    this.player.PlayState = room.room.playState;
+                    this.player.PlayState = room.playState;
 
-                    if (!room.room.songs[0]) {
+                    if (!room.songs[0]) {
                         this.player.Song = undefined;
                     } else {
-                        this.player.Song = room.room.songs[0];
+                        this.player.Song = room.songs[0];
                     }
                 }, 100);
             });

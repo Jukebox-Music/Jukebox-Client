@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let song of room.room.songs">
+            <tr *ngFor="let song of room.songs">
                 <th scope="row">1</th>
                 <td><img [src]="song.data.thumbnails.default.url"></td>
                 <td>{{song.data.title}}</td>
