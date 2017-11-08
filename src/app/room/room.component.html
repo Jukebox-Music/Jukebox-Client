@@ -8,17 +8,17 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Thumbnail</th>
                 <th scope="col">Name</th>
                 <th scope="col">Time</th>
-                <th scope="col">Genre</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let song of room.room.songs">
                 <th scope="row">1</th>
-                <td>{{song | json}}</td>
+                <td><img [src]="song.data.thumbnails.default.url"></td>
+                <td>{{song.data.title}}</td>
                 <td>{{song.duration | date:'mm:ss'}}</td>
-                <td>@mdo</td>
             </tr>
         </tbody>
     </table>
