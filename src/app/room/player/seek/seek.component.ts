@@ -16,13 +16,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SeekComponent implements OnInit, ControlValueAccessor {
     @ViewChild('bar') public bar: ElementRef;
-    public percentage;
+    public percentage: number;
+    public isDisabled: boolean;
     private onChange: (_: number) => void;
     private onTouch: (_: number) => void;
 
     constructor() {
         this.onChange = () => { };
         this.onTouch = () => { };
+        this.isDisabled = false;
     }
 
     public ngOnInit(): void {
@@ -45,7 +47,7 @@ export class SeekComponent implements OnInit, ControlValueAccessor {
             return;
         }
 
-        this.percentage = obj.toFixed(2);
+        this.percentage = obj;
     }
 
     public registerOnChange(fn: (_: number) => void): void {
@@ -57,10 +59,18 @@ export class SeekComponent implements OnInit, ControlValueAccessor {
     }
 
     private seek(e: MouseEvent): void {
+        if (this.isDisabled) {
+            return;
+        }
+
         const totalX = this.bar.nativeElement.scrollWidth;
         const currentX = e.offsetX;
-        this.percentage = ((currentX / totalX) * 100).toFixed(2);
+        this.percentage = ((currentX / totalX) * 100);
         this.onChange(this.percentage);
+    }
+
+    public setDisabledState(isDisabled: boolean): void {
+        this.isDisabled = isDisabled;
     }
 
 }
