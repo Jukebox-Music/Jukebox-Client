@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../../../environments/environment';
 
@@ -10,18 +11,24 @@ import { environment } from '../../../environments/environment';
 export class PlayerComponent implements OnInit {
     @Output() public event = new EventEmitter<PlayerEvent>();
     private audio: HTMLAudioElement;
-    public seekPercentage = 50.454;
+    private currentSongId: string;
 
-    constructor() { }
+    constructor() {
+        Observable
+        .interval(50)
+        .do(() => {
+            if (this.audio) {
+                console.log(this.audio.currentTime);
+            }
+        })
+        .take(3);
+    }
 
     public ngOnInit(): void {
-        // this.initPlayer();
-        this.audio = new Audio(`${environment.server.url}/song/test`);
     }
 
     public play(): void {
         console.log('playing');
-        this.audio.play();
         this.event.emit({
             type: 'play',
             seek: this.audio.currentTime,
@@ -30,7 +37,6 @@ export class PlayerComponent implements OnInit {
     }
 
     public pause(): void {
-        this.audio.pause();
         this.event.emit({
             type: 'pause',
             seek: this.audio.currentTime,
@@ -42,11 +48,15 @@ export class PlayerComponent implements OnInit {
         this.event.emit({
             type: 'seek',
             seek: this.audio.currentTime,
-            state: 'pause',
+            state: this.audio.paused ? 'pause' : 'play',
         });
     }
 
     public set PlayState(state: PlayState) {
+        if (!this.audio) {
+            return;
+        }
+
         switch (state) {
             case 'play':
                 this.audio.play();
@@ -57,7 +67,25 @@ export class PlayerComponent implements OnInit {
         }
     }
 
-    public set Seek(seek: number) {
-        this.audio.currentTime = seek;
+    public set Song(song: Song) {
+        if (!song) {
+            this.audio = undefined;
+            return;
+        }
+
+        if (this.currentSongId !== song.id) {
+            this.currentSongId = song.id;
+            console.log('creating new audio');
+            this.audio = new Audio(`${environment.server.url}/song?id=${song.id}`);
+        }
+
+        this.audio.currentTime = song.seek;
+    }
+
+    public get SeekPercentage(): number {
+        if (!this.audio) {
+            return 0;
+        }
+        return this.audio.currentTime / this.audio.duration * 100;
     }
 }

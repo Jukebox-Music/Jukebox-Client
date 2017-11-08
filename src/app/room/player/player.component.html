@@ -1,9 +1,15 @@
-<button class="play btn btn-link btn-lg" (click)="play()">
+<button class="play btn btn-link btn-lg" [disabled]="!audio" *ngIf="!audio">
     <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
 </button>
 
-<button class="play btn btn-link btn-link btn-lg" (click)="pause()">
-    <i class="fa fa-pause-circle fa-5x" aria-hidden="true"></i>
-</button>
+<div *ngIf="audio">
+    <button class="play btn btn-link btn-lg" (click)="play()" [disabled]="!audio" [hidden]="!audio.paused">
+        <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
+    </button>
 
-<app-seek [(ngModel)]="seekPercentage" name="seekPercentage"></app-seek>{{seekPercentage}}
+    <button class="play btn btn-link btn-link btn-lg" (click)="pause()" [disabled]="!audio" [hidden]="audio.paused">
+        <i class="fa fa-pause-circle fa-5x" aria-hidden="true"></i>
+    </button>
+</div>
+
+<app-seek [(ngModel)]="SeekPercentage" name="seekPercentage" [disabled]="!audio"></app-seek>{{SeekPercentage}}%

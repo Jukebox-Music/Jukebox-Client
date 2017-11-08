@@ -14,10 +14,14 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 
 import 'rxjs/add/observable/empty';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/timeInterval';
 import 'rxjs/add/operator/withLatestFrom';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
