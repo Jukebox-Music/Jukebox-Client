@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
 import { RoomRoutingModule } from './room-routing.module';
@@ -17,6 +18,7 @@ import { SearchModule } from './search/search.module';
         SearchModule,
         FormsModule,
         PlayerModule,
+        UtilityModule,
     ],
     declarations: [
         RoomComponent,

@@ -18,7 +18,7 @@
                 <th scope="row">1</th>
                 <td><img [src]="song.data.thumbnails.default.url"></td>
                 <td>{{song.data.title}}</td>
-                <td>{{song.duration | date:'mm:ss'}}</td>
+                <td>{{song.duration | secondToTime}}</td>
             </tr>
         </tbody>
     </table>

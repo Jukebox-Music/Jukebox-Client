@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { SocketService } from '../../socket.service';
+import { UtilityModule } from '../../utility/utility.module';
 import { SearchItemComponent } from './search-item/search-item.component';
 import { SearchComponent } from './search.component';
 
@@ -19,6 +20,7 @@ describe('SearchComponent', () => {
             imports: [
                 FormsModule,
                 HttpModule,
+                UtilityModule,
             ],
             providers: [
                 SocketService,

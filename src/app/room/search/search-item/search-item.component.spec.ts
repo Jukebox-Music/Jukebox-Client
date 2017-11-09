@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { UtilityModule } from '../../../utility/utility.module';
 import { SearchItemComponent } from './search-item.component';
 
 describe('SearchItemComponent', () => {
@@ -9,6 +10,9 @@ describe('SearchItemComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [SearchItemComponent],
+            imports: [
+                UtilityModule,
+            ],
         })
             .compileComponents();
     }));
@@ -37,6 +41,7 @@ describe('SearchItemComponent', () => {
                 },
             },
             description: '',
+            duration: 1,
         };
         fixture.detectChanges();
     });

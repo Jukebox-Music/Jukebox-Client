@@ -13,4 +13,5 @@ interface SearchResult {
         high: SearchResultThumbnail,
     };
     description: string;
+    duration: number;
 }

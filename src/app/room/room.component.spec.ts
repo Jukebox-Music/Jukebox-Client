@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { SocketService } from '../socket.service';
+import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
 import { RoomComponent } from './room.component';
@@ -25,6 +26,7 @@ describe('RoomComponent', () => {
                 HttpModule,
                 SearchModule,
                 PlayerModule,
+                UtilityModule,
             ],
             providers: [
                 SocketService,
