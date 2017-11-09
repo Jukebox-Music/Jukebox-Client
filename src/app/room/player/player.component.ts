@@ -14,6 +14,7 @@ export class PlayerComponent implements OnInit {
     private currentSongId: string;
 
     constructor() {
+        this.audio = new Audio();
         Observable
             .interval(50)
             .do(() => {
@@ -52,10 +53,6 @@ export class PlayerComponent implements OnInit {
     }
 
     public set PlayState(state: PlayState) {
-        if (!this.audio) {
-            return;
-        }
-
         switch (state) {
             case 'play':
                 this.audio.play();
@@ -68,23 +65,20 @@ export class PlayerComponent implements OnInit {
 
     public set Song(song: Song) {
         if (!song) {
-            this.audio = undefined;
+            this.audio.src = undefined;
             return;
         }
 
         if (this.currentSongId !== song.id) {
             this.currentSongId = song.id;
             console.log('creating new audio');
-            this.audio = new Audio(`${environment.server.url}/song?id=${song.id}`);
+            this.audio.src = `${environment.server.url}/song?id=${song.id}`;
         }
 
         this.audio.currentTime = song.seek;
     }
 
     public get SeekPercentage(): number {
-        if (!this.audio) {
-            return 0;
-        }
         return this.audio.currentTime / this.audio.duration * 100;
     }
 }

@@ -24,13 +24,13 @@ export class RoomComponent implements OnInit {
             .ofType<Room>('room')
             .do((room) => {
                 setTimeout(() => {
-                    this.player.PlayState = room.playState;
-
                     if (!room.songs[0]) {
                         this.player.Song = undefined;
                     } else {
                         this.player.Song = room.songs[0];
                     }
+
+                    this.player.PlayState = room.playState;
                 }, 100);
             });
     }
