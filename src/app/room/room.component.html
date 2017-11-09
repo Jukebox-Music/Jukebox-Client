@@ -14,8 +14,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let song of room.songs">
-                <th scope="row">1</th>
+            <tr *ngFor="let song of room.songs; let i = index" [attr.data-index]="i">
+                <th scope="row">{{i}}</th>
                 <td><img [src]="song.data.thumbnails.default.url"></td>
                 <td>{{song.data.title}}</td>
                 <td>{{song.duration | secondToTime}}</td>
