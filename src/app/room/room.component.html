@@ -1,6 +1,7 @@
 <app-search></app-search>
 <div *ngIf="room$ | async; let room; else loading">
     <h1>{{room.name}}</h1>
+    <p>Total ravers: {{room.totalUsers}}</p>
 
     <app-player (event)="playerEvent($event)" #player></app-player>
 
