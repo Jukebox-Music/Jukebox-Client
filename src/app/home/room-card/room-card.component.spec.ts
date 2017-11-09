@@ -29,6 +29,7 @@ describe('RoomCardComponent', () => {
                 songs: [],
                 playState: 'play',
                 name: '',
+                totalUsers: 1,
             },
         };
         fixture.detectChanges();
