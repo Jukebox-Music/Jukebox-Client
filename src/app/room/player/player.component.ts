@@ -63,7 +63,6 @@ export class PlayerComponent implements OnInit {
 
         if (this.currentSongId !== song.id) {
             this.currentSongId = song.id;
-            console.log('creating new audio');
             this.audio.src = `${environment.server.url}/song?id=${song.id}`;
         }
 
