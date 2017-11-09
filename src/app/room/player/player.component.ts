@@ -15,14 +15,6 @@ export class PlayerComponent implements OnInit {
 
     constructor() {
         this.audio = new Audio();
-        Observable
-            .interval(50)
-            .do(() => {
-                if (this.audio) {
-                    console.log(this.audio.currentTime);
-                }
-            })
-            .take(3);
     }
 
     public ngOnInit(): void {
@@ -80,5 +72,9 @@ export class PlayerComponent implements OnInit {
 
     public get SeekPercentage(): number {
         return this.audio.currentTime / this.audio.duration * 100;
+    }
+
+    public get IsAudioLoaded(): boolean {
+        return !this.audio.src.includes('undefined');
     }
 }
