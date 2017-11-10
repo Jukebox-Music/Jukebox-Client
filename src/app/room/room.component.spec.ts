@@ -7,6 +7,7 @@ import { SocketService } from '../socket.service';
 import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
+import { PlaylistComponent } from './playlist/playlist.component';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
 
@@ -19,6 +20,7 @@ describe('RoomComponent', () => {
             declarations: [
                 RoomComponent,
                 ChatComponent,
+                PlaylistComponent,
             ],
             imports: [
                 RouterTestingModule,

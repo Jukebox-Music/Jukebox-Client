@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,7 +10,7 @@ import { PlayerComponent } from './player/player.component';
     templateUrl: './room.component.html',
     styleUrls: ['./room.component.scss'],
 })
-export class RoomComponent implements OnInit {
+export class RoomComponent implements OnInit, OnDestroy {
     private roomName$: Observable<string>;
     public room$: Observable<Room>;
     @ViewChild(PlayerComponent) public player: PlayerComponent;
@@ -43,6 +43,11 @@ export class RoomComponent implements OnInit {
             }
             this.socketService.Socket.emit('join', name);
         }).subscribe();
+    }
+
+    public ngOnDestroy(): void {
+        this.socketService.Socket.emit('leave');
+        console.log('leaving');
     }
 
     public playerEvent(e: PlayerEvent): void {

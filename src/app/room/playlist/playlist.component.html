@@ -1,0 +1,36 @@
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active">
+                    <i class="fa fa-list-ol fa-fw" aria-hidden="true"></i> Playlist
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">
+                    <i class="fa fa-history fa-fw" aria-hidden="true"></i> History
+                </a>
+            </li>
+        </ul>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Thumbnail</th>
+                <th scope="col">Name</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let song of room.songs; let i = index" [attr.data-index]="i">
+                <th scope="row">{{i + 1}}</th>
+                <td>
+                    <img [src]="song.data.thumbnails.default.url">
+                </td>
+                <td>{{song.data.title}}</td>
+                <td>{{song.duration | secondToTime}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
