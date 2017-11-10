@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="display-1">
+        <span>Jukebox</span>
+
+        <small>
+            <i class="fa fa-file-audio-o" aria-hidden="true"></i>
+        </small>
+    </h1>
+
+    <div *ngIf="name$ | async; let name">
+        <p class="lead">Welcome {{name}}!
+            <small class="subtitle" [hidden]="name !== 'Un-named'">(Change name at homepage)</small>
+        </p>
+    </div>
+
+    <hr>
+</div>

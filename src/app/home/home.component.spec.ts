@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
+import { HeaderComponent } from '../header/header.component';
 import { SocketService } from '../socket.service';
 import { AppStoreModule } from '../store/app-store.module';
 import { HomeComponent } from './home.component';
@@ -21,6 +22,7 @@ describe('HomeComponent', () => {
                 RoomCardComponent,
                 SignUpComponent,
                 NewRoomComponent,
+                HeaderComponent,
             ],
             imports: [
                 RouterTestingModule,
