@@ -1,8 +1,7 @@
 <div class="container">
     <div *ngIf="room$ | async; let room; else loading">
         <h1>{{room.name}}</h1>
-        <p>Total ravers: {{room.totalUsers}}</p>
-
+        <p class="lead float-right">{{room.totalUsers}} {{room.totalUsers > 1 ? 'ravers' : 'raver'}}</p>
 
         <app-search></app-search>
 
