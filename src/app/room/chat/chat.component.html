@@ -1,9 +1,12 @@
-<div class="messages" #chat>
-    <p *ngFor="let message of chatLog"><strong>{{message.name ? message.name : 'Un-named'}}:</strong> {{message.message}}</p>
-</div>
+<div class="card">
+    <div class="card-body">
+        <div class="messages" #chat>
+            <p *ngFor="let message of chatLog">
+                <strong>{{message.name ? message.name : 'Un-named'}}:</strong> {{message.message}}</p>
+        </div>
 
-<form (ngSubmit)="submit(text)" #form="ngForm">
-    <div class="form-group">
-        <input class="form-control" rows="3" placeholder="Enter to Send" name="text" [(ngModel)]="text" autocomplete="off">
+        <form (ngSubmit)="submit(text)" #form="ngForm">
+            <input class="form-control" rows="3" placeholder="Enter to Send" name="text" [(ngModel)]="text" autocomplete="off">
+        </form>
     </div>
-</form>
+</div>
