@@ -1,3 +1,20 @@
+$bg-color: rgb(39, 39, 39);
+
 .audio-button {
     display: inline-block;
+}
+
+.padding {
+    height: 300px;
+}
+
+.fixed {
+    background-color: $bg-color;
+    bottom: 0;
+    left: 0;
+    padding: 20px 30px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
 }

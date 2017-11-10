@@ -3,7 +3,6 @@
         <h1>{{room.name}}</h1>
         <p>Total ravers: {{room.totalUsers}}</p>
 
-        <app-player (event)="playerEvent($event)" #player></app-player>
 
         <app-search></app-search>
 
@@ -18,7 +17,7 @@
         </div>
         {{room | json}}
 
-
+        <app-player (event)="playerEvent($event)" #player></app-player>
     </div>
 
     <ng-template #loading>
