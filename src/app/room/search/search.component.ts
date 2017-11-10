@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -14,17 +14,13 @@ export class SearchComponent implements AfterViewInit {
     public results$: Observable<SearchResult[]>;
     public searchTerm: string;
     public isExpanded: boolean;
-    public dimensions: { x: number, y: number };
 
-    constructor(private http: Http, private socketService: SocketService, private el: ElementRef) {
+    constructor(private http: Http, private socketService: SocketService) {
         this.isExpanded = false;
     }
 
     public ngAfterViewInit(): void {
-        this.dimensions = {
-            x: this.el.nativeElement.offsetWidth,
-            y: this.el.nativeElement.offsetHeight,
-        };
+
     }
 
     public search(): void {

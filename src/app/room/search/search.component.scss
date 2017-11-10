@@ -2,6 +2,10 @@ $shadow-color: rgba(0, 0, 0, .342);
 $background-color: rgba(0, 0, 0, .315);
 $main-bg-color: #fff;
 
+.btn {
+    cursor: pointer;
+}
+
 :host {
     display: block;
     position: relative;
@@ -17,10 +21,6 @@ $main-bg-color: #fff;
     top: 15%;
     transform: translate(0, -70px);
     z-index: 11;
-}
-
-.fake-search-box {
-    padding: 20px;
 }
 
 .wrapper {
