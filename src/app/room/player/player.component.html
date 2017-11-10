@@ -1,14 +1,28 @@
-<button class="play btn btn-link btn-lg" [disabled]="!IsAudioLoaded" *ngIf="!IsAudioLoaded">
-    <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
-</button>
+<div class="audio-button">
+    <button class="btn btn-link btn-lg" [disabled]="!IsAudioLoaded">
+        <i class="fa fa-step-backward" aria-hidden="true"></i>
+    </button>
+</div>
 
-<div *ngIf="IsAudioLoaded">
-    <button class="play btn btn-link btn-lg" (click)="play()" [disabled]="!IsAudioLoaded" [hidden]="!audio.paused">
-        <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
+<div *ngIf="IsAudioLoaded; else disablePlay" class="audio-button">
+    <button class="btn btn-link btn-lg" (click)="play()" [hidden]="!audio.paused">
+        <i class="fa fa-play-circle fa-4x" aria-hidden="true"></i>
     </button>
 
-    <button class="play btn btn-link btn-link btn-lg" (click)="pause()" [disabled]="!IsAudioLoaded" [hidden]="audio.paused">
-        <i class="fa fa-pause-circle fa-5x" aria-hidden="true"></i>
+    <button class="btn btn-link btn-link btn-lg" (click)="pause()" [hidden]="audio.paused">
+        <i class="fa fa-pause-circle fa-4x" aria-hidden="true"></i>
+    </button>
+</div>
+
+<ng-template #disablePlay>
+    <button class="play btn btn-link btn-lg audio-button" disabled *ngIf="!IsAudioLoaded">
+        <i class="fa fa-play-circle fa-4x" aria-hidden="true"></i>
+    </button>
+</ng-template>
+
+<div class="audio-button">
+    <button class="btn btn-link btn-lg" [disabled]="!IsAudioLoaded">
+        <i class="fa fa-step-forward" aria-hidden="true"></i>
     </button>
 </div>
 
