@@ -9,11 +9,15 @@
         "Truthy",
         "gitignore",
         "Injectable",
-        "ngrx"
+        "ngrx",
+        "dolan",
+        "scrollbar",
+        "progressbar"
     ],
     "ignorePaths": [
         ".gitignore",
         "cSpell.json",
-        "tslint.json"
+        "tslint.json",
+        "src/polyfills.ts"
     ]
 }

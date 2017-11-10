@@ -9,7 +9,8 @@
     "test": "ng test --watch false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sass-lint": "sass-lint \"src/**/*.scss\" -v -q"
+    "sass-lint": "sass-lint \"src/**/*.scss\" -v -q",
+    "cspell": "cspell \"src/**/*.*\""
   },
   "private": true,
   "dependencies": {
@@ -46,6 +47,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.2.0",
+    "cspell": "^2.0.2",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
