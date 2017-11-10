@@ -1,18 +1,26 @@
-<app-search></app-search>
-<div *ngIf="room$ | async; let room; else loading">
-    <h1>{{room.name}}</h1>
-    <p>Total ravers: {{room.totalUsers}}</p>
+<div class="container">
+    <app-search></app-search>
+    <div *ngIf="room$ | async; let room; else loading">
+        <h1>{{room.name}}</h1>
+        <p>Total ravers: {{room.totalUsers}}</p>
 
-    <app-player (event)="playerEvent($event)" #player></app-player>
+        <app-player (event)="playerEvent($event)" #player></app-player>
 
-    <app-playlist [room]="room"></app-playlist>
+        <div class="row">
+            <div class="col-md-8">
+                <app-playlist [room]="room"></app-playlist>
+            </div>
 
-    {{room | json}}
+            <div class="col-md-4">
+                <app-chat></app-chat>
+            </div>
+        </div>
+        {{room | json}}
 
-    <app-chat></app-chat>
 
+    </div>
+
+    <ng-template #loading>
+        Loading
+    </ng-template>
 </div>
-
-<ng-template #loading>
-    Loading
-</ng-template>
