@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SortablejsModule } from 'angular-sortablejs';
 
+import { SocketService } from '../../socket.service';
 import { UtilityModule } from '../../utility/utility.module';
 import { PlaylistComponent } from './playlist.component';
 import { RowComponent } from './row/row.component';
@@ -18,6 +19,9 @@ describe('PlaylistComponent', () => {
             imports: [
                 UtilityModule,
                 SortablejsModule,
+            ],
+            providers: [
+                SocketService,
             ],
         })
             .compileComponents();
