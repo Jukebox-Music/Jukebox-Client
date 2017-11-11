@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SortablejsModule } from 'angular-sortablejs';
 
 import { UtilityModule } from '../../utility/utility.module';
 import { PlaylistComponent } from './playlist.component';
@@ -12,6 +13,7 @@ describe('PlaylistComponent', () => {
             declarations: [PlaylistComponent],
             imports: [
                 UtilityModule,
+                SortablejsModule,
             ],
         })
             .compileComponents();

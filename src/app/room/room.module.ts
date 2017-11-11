@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {SortablejsModule} from 'angular-sortablejs';
 
 import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
@@ -20,6 +21,7 @@ import { SearchModule } from './search/search.module';
         FormsModule,
         PlayerModule,
         UtilityModule,
+        SortablejsModule,
     ],
     declarations: [
         RoomComponent,
