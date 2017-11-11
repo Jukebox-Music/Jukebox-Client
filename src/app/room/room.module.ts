@@ -8,6 +8,7 @@ import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { RowComponent } from './playlist/row/row.component';
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
@@ -27,6 +28,7 @@ import { SearchModule } from './search/search.module';
         RoomComponent,
         ChatComponent,
         PlaylistComponent,
+        RowComponent,
     ],
     exports: [
         RoomComponent,
