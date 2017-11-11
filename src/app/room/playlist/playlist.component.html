@@ -15,7 +15,7 @@
     </div>
 
     <div class="card-body">
-        <div [sortablejs]="items" [sortablejsOptions]="options">
+        <div [sortablejs] [sortablejsOptions]="options">
             <app-row *ngFor="let song of room.songs; let i = index" [attr.data-index]="i" [index]="i" [song]="song"></app-row>
         </div>
     </div>
