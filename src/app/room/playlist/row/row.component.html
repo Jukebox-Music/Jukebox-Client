@@ -1,3 +1,6 @@
-<p>
-  row works!
-</p>
+<div class="block">{{index + 1}}</div>
+<div class="block">
+    <img [src]="song.data.thumbnails.default.url">
+</div>
+<div class="block">{{song.data.title}}</div>
+<div class="block">{{song.duration | secondToTime}}</div>

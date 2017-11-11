@@ -3,6 +3,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 
 import { UtilityModule } from '../../utility/utility.module';
 import { PlaylistComponent } from './playlist.component';
+import { RowComponent } from './row/row.component';
 
 describe('PlaylistComponent', () => {
     let component: PlaylistComponent;
@@ -10,7 +11,10 @@ describe('PlaylistComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PlaylistComponent],
+            declarations: [
+                PlaylistComponent,
+                RowComponent,
+            ],
             imports: [
                 UtilityModule,
                 SortablejsModule,

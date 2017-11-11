@@ -9,6 +9,7 @@ import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { RowComponent } from './playlist/row/row.component';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
 
@@ -22,6 +23,7 @@ describe('RoomComponent', () => {
                 RoomComponent,
                 ChatComponent,
                 PlaylistComponent,
+                RowComponent,
             ],
             imports: [
                 RouterTestingModule,
