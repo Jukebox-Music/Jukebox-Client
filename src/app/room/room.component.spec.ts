@@ -5,11 +5,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SortablejsModule } from 'angular-sortablejs';
 
 import { SocketService } from '../socket.service';
-import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
-import { PlaylistComponent } from './playlist/playlist.component';
-import { RowComponent } from './playlist/row/row.component';
+import { PlaylistModule } from './playlist/playlist.module';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
 
@@ -22,8 +20,6 @@ describe('RoomComponent', () => {
             declarations: [
                 RoomComponent,
                 ChatComponent,
-                PlaylistComponent,
-                RowComponent,
             ],
             imports: [
                 RouterTestingModule,
@@ -31,8 +27,7 @@ describe('RoomComponent', () => {
                 HttpModule,
                 SearchModule,
                 PlayerModule,
-                UtilityModule,
-                SortablejsModule,
+                PlaylistModule,
             ],
             providers: [
                 SocketService,

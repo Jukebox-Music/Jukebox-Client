@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UtilityModule } from '../../../utility/utility.module';
 import { RowComponent } from './row.component';
+import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 
 describe('RowComponent', () => {
     let component: RowComponent;
@@ -9,7 +10,10 @@ describe('RowComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [RowComponent],
+            declarations: [
+                RowComponent,
+                ThumbnailComponent,
+            ],
             imports: [
                 UtilityModule,
             ],

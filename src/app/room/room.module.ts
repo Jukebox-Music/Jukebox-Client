@@ -2,13 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {SortablejsModule} from 'angular-sortablejs';
 
-import { UtilityModule } from '../utility/utility.module';
 import { ChatComponent } from './chat/chat.component';
 import { PlayerModule } from './player/player.module';
-import { PlaylistComponent } from './playlist/playlist.component';
-import { RowComponent } from './playlist/row/row.component';
+import { PlaylistModule } from './playlist/playlist.module';
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
 import { SearchModule } from './search/search.module';
@@ -21,14 +18,11 @@ import { SearchModule } from './search/search.module';
         SearchModule,
         FormsModule,
         PlayerModule,
-        UtilityModule,
-        SortablejsModule,
+        PlaylistModule,
     ],
     declarations: [
         RoomComponent,
         ChatComponent,
-        PlaylistComponent,
-        RowComponent,
     ],
     exports: [
         RoomComponent,

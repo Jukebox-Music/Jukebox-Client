@@ -5,6 +5,7 @@ import { SocketService } from '../../socket.service';
 import { UtilityModule } from '../../utility/utility.module';
 import { PlaylistComponent } from './playlist.component';
 import { RowComponent } from './row/row.component';
+import { ThumbnailComponent } from './row/thumbnail/thumbnail.component';
 
 describe('PlaylistComponent', () => {
     let component: PlaylistComponent;
@@ -15,6 +16,7 @@ describe('PlaylistComponent', () => {
             declarations: [
                 PlaylistComponent,
                 RowComponent,
+                ThumbnailComponent,
             ],
             imports: [
                 UtilityModule,
