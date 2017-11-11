@@ -1,0 +1,13 @@
+.thumb {
+    display: block;
+    height: 100px;
+    overflow: hidden;
+    width: 100px;
+
+    img {
+        display: block;
+        max-height: 100%;
+        transform: scale(1.5);
+    }
+}
+
