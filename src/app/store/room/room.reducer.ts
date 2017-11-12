@@ -3,7 +3,12 @@ import { RoomModel } from './room.model';
 
 const defaultName = 'Un-named';
 
-export function roomReducer(state: RoomModel = { name: defaultName }, action: RoomActions.Actions): RoomModel {
+export function roomReducer(state: RoomModel = {
+    songs: [],
+    playState: 'pause',
+    name: 'Un-named',
+    totalUsers: 0,
+}, action: RoomActions.Actions): RoomModel {
     switch (action.type) {
         case RoomActions.ADD_DATA:
             return action.payload;
