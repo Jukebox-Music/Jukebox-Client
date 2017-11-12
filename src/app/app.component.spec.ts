@@ -2,7 +2,6 @@ import { async, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SocketService } from './socket.service';
 import { AppStoreModule } from './store/app-store.module';
@@ -12,7 +11,6 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent,
-                FooterComponent,
                 HeaderComponent,
             ],
             imports: [

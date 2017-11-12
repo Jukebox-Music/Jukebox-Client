@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { HeaderComponent } from '../header/header.component';
 import { SocketService } from '../socket.service';
 import { AppStoreModule } from '../store/app-store.module';
+import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home.component';
 import { NewRoomComponent } from './new-room/new-room.component';
 import { RoomCardComponent } from './room-card/room-card.component';
@@ -23,6 +24,7 @@ describe('HomeComponent', () => {
                 SignUpComponent,
                 NewRoomComponent,
                 HeaderComponent,
+                FooterComponent,
             ],
             imports: [
                 RouterTestingModule,
