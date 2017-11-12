@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SortablejsModule } from 'angular-sortablejs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { AppStoreModule } from './store/app-store.module';
         RoomModule,
         HomeModule,
         AppStoreModule,
+        SortablejsModule.forRoot({ animation: 150 }),
     ],
     providers: [
         SocketService,

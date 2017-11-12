@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SortablejsModule } from 'angular-sortablejs/dist';
+import { SortablejsModule } from 'angular-sortablejs';
 
 import { UtilityModule } from '../../utility/utility.module';
 import { PlaylistComponent } from './playlist.component';

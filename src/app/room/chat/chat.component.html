@@ -6,7 +6,8 @@
         </div>
 
         <form (ngSubmit)="submit(text)" #form="ngForm">
-            <input class="form-control" rows="3" placeholder="Enter to Send" name="text" [(ngModel)]="text" autocomplete="off">
+            <input class="form-control" rows="3" placeholder="Type something..." name="text" [(ngModel)]="text" autocomplete="off">
+            <small class="form-text text-muted">Press <kbd>Enter</kbd> to send</small>
         </form>
     </div>
 </div>

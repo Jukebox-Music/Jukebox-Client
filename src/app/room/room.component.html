@@ -1,12 +1,12 @@
 <div class="container">
     <div *ngIf="room$ | async; let room; else loading">
-        <h1>{{room.name}}</h1>
-        <p class="lead float-right">{{room.totalUsers}} {{room.totalUsers > 1 ? 'ravers' : 'raver'}}</p>
-
-        <app-search></app-search>
-
         <div class="row">
             <div class="col-md-8">
+                <h1>{{room.name}}</h1>
+                <p class="lead float-right">{{room.totalUsers}} {{room.totalUsers > 1 ? 'ravers' : 'raver'}}</p>
+
+                <app-search></app-search>
+
                 <app-playlist [room]="room"></app-playlist>
             </div>
 
@@ -14,6 +14,7 @@
                 <app-chat></app-chat>
             </div>
         </div>
+
         <!-- {{room | json}} -->
 
         <app-player (event)="playerEvent($event)" #player></app-player>
