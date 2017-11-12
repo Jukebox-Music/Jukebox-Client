@@ -1,13 +1,17 @@
 <div class="card mb-3" [routerLink]="['/room']" [queryParams]="{name: room.room.name}">
-    <div class="crop">
-        <div class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item" *ngFor="let song of room.room.songs" [ngClass]="{'active': i === 0}" [attr.data-index]="i">
-                    <img class="d-block w-100" [src]="song.data.thumbnails.high.url">
+    <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let song of room.room.songs; let i = index" [ngClass]="{'active': i === 0}" [attr.data-index]="i">
+                <div class="crop">
+                    <img class="d-block w-100" src="{{song.data.thumbnails.high.url}}">
                 </div>
             </div>
         </div>
-        <img class="card-img-top" [src]="room.thumbnails.high.url" alt="Room thumbnail">
+    </div>
+    <div *ngIf="room.room.songs.length === 0">
+        <div class="crop">
+            <img src="http://lorempixel.com/400/200">
+        </div>
     </div>
     <div class="card-body">
         <h4 class="card-title">{{room.room.name}}</h4>

@@ -13,7 +13,6 @@
             </blockquote>
         </div>
         <div *ngIf="rooms$ | async; let rooms; else loading">
-            {{rooms | json}}
             <app-room-card *ngFor="let room of rooms" [room]="room"></app-room-card>
         </div>
 
