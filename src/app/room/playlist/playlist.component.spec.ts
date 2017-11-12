@@ -20,7 +20,7 @@ describe('PlaylistComponent', () => {
             ],
             imports: [
                 UtilityModule,
-                SortablejsModule,
+                SortablejsModule.forRoot({}),
             ],
             providers: [
                 SocketService,
