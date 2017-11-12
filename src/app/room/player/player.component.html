@@ -29,7 +29,9 @@
         </div>
     </div>
 
-    <app-seek [ngModel]="SeekPercentage" name="seekPercentage" [disabled]="!IsAudioLoaded" (ngModelChange)="seek($event)"></app-seek>
+    <div class="container">
+        <app-seek [ngModel]="SeekPercentage" name="seekPercentage" [disabled]="!IsAudioLoaded" (ngModelChange)="seek($event)"></app-seek>
+    </div>
 </div>
 
 <div class="padding"></div>
