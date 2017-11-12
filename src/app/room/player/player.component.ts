@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../../../environments/environment';
@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
     templateUrl: './player.component.html',
     styleUrls: ['./player.component.scss'],
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnInit, OnDestroy {
     @Output() public event = new EventEmitter<PlayerEvent>();
     private audio: HTMLAudioElement;
     private currentSongId: string;
@@ -18,6 +18,11 @@ export class PlayerComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+    }
+
+    public ngOnDestroy(): void {
+        this.audio.pause();
+        this.audio.src = '';
     }
 
     public play(): void {
