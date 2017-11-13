@@ -2,22 +2,26 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active">
+                <a class="nav-link" [ngClass]="{'active': isPlaylist}" (click)="isPlaylist = true">
                     <i class="fa fa-list-ol fa-fw" aria-hidden="true"></i> Playlist
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled">
+                <a class="nav-link"  [ngClass]="{'active': !isPlaylist}" (click)="isPlaylist = false">
                     <i class="fa fa-history fa-fw" aria-hidden="true"></i> History
                 </a>
             </li>
         </ul>
     </div>
 
-    <div class="card-body">
+    <div class="card-body" *ngIf="isPlaylist">
         <div [sortablejs] [sortablejsOptions]="options">
             <app-row *ngFor="let song of room.songs; let i = index" [attr.data-index]="i" [index]="i" [song]="song"></app-row>
         </div>
+    </div>
+
+    <div class="card-body" *ngIf="!isPlaylist">
+        <app-row *ngFor="let song of room.history; let i = index" [attr.data-index]="i" [index]="i" [song]="song"></app-row>
     </div>
 
     <div class="card-footer text-center">

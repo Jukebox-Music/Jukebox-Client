@@ -10,6 +10,7 @@ import { SocketService } from '../../socket.service';
 export class PlaylistComponent implements OnInit {
     @Input() public room: Room;
     public options: SortablejsOptions;
+    public isPlaylist: boolean;
 
     constructor(socketService: SocketService) {
         this.options = {
@@ -22,6 +23,8 @@ export class PlaylistComponent implements OnInit {
             },
             animation: 150,
         };
+
+        this.isPlaylist = true;
     }
 
     public ngOnInit(): void {

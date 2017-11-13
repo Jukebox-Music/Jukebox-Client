@@ -5,6 +5,7 @@ const defaultName = 'Un-named';
 
 export function roomReducer(state: RoomModel = {
     songs: [],
+    history: [],
     playState: 'pause',
     name: 'Un-named',
     totalUsers: 0,
