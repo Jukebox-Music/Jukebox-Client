@@ -23,6 +23,7 @@ export class UserEffects {
         })
         .flatMap((payload) => {
             console.log(payload);
+            localStorage.setItem('user.name', payload.name);
             this.socketService.Socket.emit('set-user', payload);
             return Observable.empty();
         });
