@@ -1,9 +1,12 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { SocketService } from '../socket.service';
+import { AppState } from '../store/app-state';
 import { PlayerComponent } from './player/player.component';
+import { RoomService } from './room.service';
 
 @Component({
     selector: 'app-room',
@@ -15,13 +18,13 @@ export class RoomComponent implements OnInit, OnDestroy {
     public room$: Observable<Room>;
     @ViewChild(PlayerComponent) public player: PlayerComponent;
 
-    constructor(route: ActivatedRoute, private socketService: SocketService, private router: Router) {
+    // tslint:disable-next-line:max-line-length
+    constructor(route: ActivatedRoute, private socketService: SocketService, private router: Router, store: Store<AppState>, roomService: RoomService) {
         this.roomName$ = route.queryParams.map((params) => {
             return params.name;
         });
 
-        this.room$ = socketService.Socket$
-            .ofType<Room>('room')
+        this.room$ = store.select('room')
             .do((room) => {
                 setTimeout(() => {
                     if (!room.songs[0]) {

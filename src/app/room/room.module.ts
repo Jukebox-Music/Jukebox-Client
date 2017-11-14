@@ -8,6 +8,7 @@ import { PlayerModule } from './player/player.module';
 import { PlaylistModule } from './playlist/playlist.module';
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room.component';
+import { RoomService } from './room.service';
 import { SearchModule } from './search/search.module';
 
 @NgModule({
@@ -23,6 +24,9 @@ import { SearchModule } from './search/search.module';
     declarations: [
         RoomComponent,
         ChatComponent,
+    ],
+    providers: [
+        RoomService,
     ],
     exports: [
         RoomComponent,
