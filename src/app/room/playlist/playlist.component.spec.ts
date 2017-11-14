@@ -34,6 +34,7 @@ describe('PlaylistComponent', () => {
         component = fixture.componentInstance;
         component.room = {
             songs: [],
+            history: [],
             playState: 'pause',
             name: 'test',
             totalUsers: 1,

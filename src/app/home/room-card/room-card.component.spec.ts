@@ -27,6 +27,7 @@ describe('RoomCardComponent', () => {
             length: 1,
             room: {
                 songs: [],
+                history: [],
                 playState: 'play',
                 name: '',
                 totalUsers: 1,
