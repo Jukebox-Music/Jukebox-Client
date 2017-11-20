@@ -15,11 +15,15 @@ export class ChatComponent implements OnInit {
     @ViewChild('chat') public chat: ElementRef;
 
     constructor(private socketService: SocketService) {
+        const newMessageSound = new Audio('/assets/sounds/new-message.wav');
         this.chatLog = [];
         this.chat$ = this.socketService.Socket$
             .ofType<ChatMessage>('chat-response')
             .do((m) => {
                 this.chatLog.push(m);
+                newMessageSound.pause();
+                newMessageSound.currentTime = 0;
+                newMessageSound.play();
                 setTimeout(() => {
                     this.chat.nativeElement.scrollTop = this.chat.nativeElement.scrollHeight;
                 }, 100);
