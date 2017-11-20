@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { AppState } from './store';
+import { AddNameAction } from './store/user';
 
 @Component({
     selector: 'app-root',
@@ -6,4 +10,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+    constructor(store: Store<AppState>) {
+        store.dispatch(new AddNameAction(localStorage.getItem('user.name')));
+    }
 }

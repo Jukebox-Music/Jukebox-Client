@@ -1,7 +1,7 @@
 import * as UserActions from './user.actions';
 import { UserModel } from './user.model';
 
-const defaultName = localStorage.getItem('user.name') || 'Un-named';
+const defaultName = 'Un-named';
 
 export function userReducer(state: UserModel = { name: defaultName }, action: UserActions.Actions): UserModel {
     switch (action.type) {
