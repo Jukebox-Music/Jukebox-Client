@@ -18,10 +18,10 @@ before_script:
     - npm i -g angular-cli-ghpages
     - cp node_modules/socket.io-client/dist/socket.io{.slim.js,.min.js}
 script:
-    - npm run lint
+    # - npm run lint
     - npm run sass-lint
     - npm run cspell
-    - npm test
+    # - npm test
     - ng build --prod --base-href "/Jukebox-Client/"
 after_success:
-    - ngh --repo=https://GH_TOKEN@github.com/Jukebox-Music/Jukebox-Client.git --name="Travis CI" --email=dolan_miu@hotmail.com
+    - ngh --repo=https://GH_TOKEN@github.com/Jukebox-Music/Jukebox-Client.git --name="Travis CI" --email=dolan_miu@hotmail.com --dir="dist/apps/web"

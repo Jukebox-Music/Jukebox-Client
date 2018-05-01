@@ -1,40 +1,10 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "jukebox-client"
+    "name": "jukebox-client",
+    "npmScope": "jukebox-client",
+    "latestMigration": "20180424-add-tsconfig-tools"
   },
-  "apps": [
-    {
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "styles.scss"
-      ],
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/popper.js/dist/umd/popper.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
-      ],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
-    }
-  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -42,15 +12,15 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
+      "project": "./tsconfig.spec.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/tsconfig.spec.json",
+      "project": "apps/web/src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
+      "project": "apps/web/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],
@@ -59,12 +29,76 @@
       "config": "./karma.conf.js"
     }
   },
-  "defaults": {
-    "styleExt": "scss",
-    "class": {
-      "spec": false
+  "apps": [
+    {
+      "name": "web",
+      "root": "apps/web/src",
+      "outDir": "dist/apps/web",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../../../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../../../node_modules/font-awesome/css/font-awesome.css",
+        "styles.scss"
+      ],
+      "scripts": [
+        "../../../node_modules/jquery/dist/jquery.js",
+        "../../../node_modules/popper.js/dist/umd/popper.min.js",
+        "../../../node_modules/bootstrap/dist/js/bootstrap.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "tags": []
     },
-    "component": {
-    }
+    {
+      "name": "$workspaceRoot",
+      "root": ".",
+      "appRoot": ""
+    },
+    {
+        "name": "mobile",
+        "root": "apps/mobile/src",
+        "outDir": "dist/apps/mobile",
+        "assets": [
+          "assets"
+        ],
+        "main": "main.ts",
+        "test": "../../../test.js",
+        "tsconfig": "tsconfig.app.json",
+        "testTsconfig": "../../../tsconfig.spec.json",
+        "prefix": "app",
+        "styles": [
+          "../../../node_modules/bootstrap/dist/css/bootstrap.css",
+          "../../../node_modules/font-awesome/css/font-awesome.css",
+          "styles.scss"
+        ],
+        "scripts": [
+          "../../../node_modules/jquery/dist/jquery.js",
+          "../../../node_modules/popper.js/dist/umd/popper.min.js",
+          "../../../node_modules/bootstrap/dist/js/bootstrap.js"
+        ]
+      }
+  ],
+  "defaults": {
+    "schematics": {
+      "collection": "@nrwl/schematics"
+    },
+    "styleExt": "css",
+    "component": {}
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }
