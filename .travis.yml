@@ -20,7 +20,7 @@ before_script:
 script:
     # - npm run lint
     - npm run sass-lint
-    - npm run cspell
+    - npm run spell
     # - npm test
     - ng build --prod --base-href "/Jukebox-Client/"
 after_success:
