@@ -1,5 +1,5 @@
 {
-  "name": "Mobile",
+  "name": "mobile",
   "license": "SEE LICENSE IN <your-license-filename>",
   "version": "0.0.0",
   "nativescript": {
@@ -20,7 +20,7 @@
     "reflect-metadata": "0.1.8",
     "rxjs": "5.5.2",
     "tns-android": "4.1.0-2018.4.30.1",
-    "tns-core-modules": "3.4.0",
+    "tns-core-modules": "4.0.0",
     "zone.js": "0.8.2"
   },
   "devDependencies": {
